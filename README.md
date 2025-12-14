@@ -1,6 +1,7 @@
 # Batch Distillation Project
 
 This repository contains all materials related to the batch distillation project. It is organized to facilitate reproducibility, reference, and further research.
+Note: work in progress.
 
 ## Repository Structure
 
