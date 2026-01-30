@@ -79,11 +79,11 @@ T = T2_Celsius_w
 
 # Calculate ethanol vapor pressure using Antoine equation
 def antoine_ethanol(T):
-    a_e = 10 ** (8.20417 - 1642.89 / (T + 230.3))
+    a_e = 10 ** (7.58670 - 1281.590 / (T + 193.768)) 
     return a_e
 
 def antoine_water(T):
-    a_w = 10 ** (8.07131 - 1730.63 / (T + 233.426))
+    a_w = 10 ** (8.07131 - 1730.630 / (T + 233.426))
     return a_w
 
 # Margules equation for activity coefficients
@@ -372,8 +372,9 @@ for step in range(1, num_steps):
     # Calculate moles of distillate collected
     Energy = PowerI * time_step_size                # Energy input (J)
     latent_heat = x_D[step] * Molw_e * L_v_e + (1 - x_D[step]) * Molw_w * L_v_w
-
-    c_f = 1-593/722.14   # Diagnostic Validation: correction factor for mass loss from the 1st tray as liquid.
+    
+    #c_f = 0 # No correction factor
+    c_f = 1-593/719.69   # Diagnostic Validation: correction factor for mass loss from the 1st tray as liquid.
 
     no_dist =(1-c_f)* Energy / ((1 + RR) * latent_heat)     # Moles of distillate
     
@@ -601,5 +602,4 @@ plt.show()
 
 #------------------------------------------------------------------------------
 #  ---------------------------- END -----------------------------------------
-
 #------------------------------------------------------------------------------

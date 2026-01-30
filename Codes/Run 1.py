@@ -79,11 +79,11 @@ T = T2_Celsius_w
 
 # Calculate ethanol vapor pressure using Antoine equation
 def antoine_ethanol(T):
-    a_e = 10 ** (8.20417 - 1642.89 / (T + 230.3))
+    a_e = 10 ** (7.58670 - 1281.590 / (T + 193.768)) 
     return a_e
 
 def antoine_water(T):
-    a_w = 10 ** (8.07131 - 1730.63 / (T + 233.426))
+    a_w = 10 ** (8.07131 - 1730.630 / (T + 233.426))
     return a_w
 
 # Margules equation for activity coefficients
