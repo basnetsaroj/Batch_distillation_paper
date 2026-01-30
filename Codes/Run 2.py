@@ -432,7 +432,7 @@ for step in range(1, num_steps):
 collected_ethanol = V_e_collected[num_steps-1]
 recovery = (collected_ethanol / V_e_initial)
   
-print("\nSimulation unsuccessfull.\n---- Distillation Results and Summary ----")
+print("\nSimulation successfull.\n---- Distillation Results and Summary ----")
 if num_steps > 2: 
     print(f"Operation Time          : {time[num_steps-1]/60:.1f} mins")
     print(f"Power Input             : {PowerI:.2f} W")
@@ -601,4 +601,5 @@ plt.show()
 
 #------------------------------------------------------------------------------
 #  ---------------------------- END -----------------------------------------
+
 #------------------------------------------------------------------------------
