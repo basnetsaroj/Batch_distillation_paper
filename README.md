@@ -1,33 +1,30 @@
 # Batch Distillation
 
-This repository contains all materials related to the batch distillation project. It is organized to facilitate reproducibility, reference, and further research.
+This repository contains the materials developed for the **batch distillation project**, including project documentation, simulation and analysis codes, and CAD models of the experimental apparatus.
 
-**`Note: work in progress.`**
+> **Note:** This repository is a work in progress and may be updated as the project develops.
 
 ## Repository Structure
 
 - **`Documentation/`**  
-  Contains the project report, paper drafts, appendices, and supplementary documentation.
+  Project reports, research paper drafts, appendices, and supplementary documentation.
 
 - **`Codes/`**  
-  Python scripts and other code used for simulations, equilibrium curve generation, McCabe-Thiele analysis, and data processing.
+  Python scripts used for thermodynamic calculations, equilibrium curve generation, batch distillation modeling, McCabe–Thiele analysis, simulations, and data processing.
 
 - **`CAD Model/`**  
-  CAD models of distillation apparatus.
+  CAD models and related files for the batch distillation apparatus.
 
 ## Purpose
 
-This repository provides a comprehensive resource for understanding, reproducing, and extending the batch distillation project, including both theoretical and experimental aspects.
+This repository is intended to support the **reproducibility, reference, and further development** of the batch distillation project. It includes materials covering both the theoretical modeling and experimental work.
 
 ## Usage
 
-1. Refer to `Documentation/` for the full project report and methodology.  
-2. Use the scripts in `Codes/` to run simulations and generate analysis plots.  
-3. Explore `CAD Model/` for apparatus CAD files.
+1. Refer to **`Documentation/`** for the project methodology, experimental details, and modeling approach.
+2. Use the scripts in **`Codes/`** to reproduce simulations and generate analysis results and plots.
+3. Explore **`CAD Model/`** for the design and CAD files of the distillation apparatus.
 
 ## License
 
-[All Rights Reserved]
-
----
-
+**All Rights Reserved.**
