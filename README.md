@@ -6,8 +6,8 @@ This repository contains the materials developed for the **batch distillation pr
 
 ## Repository Structure
 
-- **`Documentation/`**  
-  Project reports, research paper drafts, appendices, and supplementary documentation.
+- **`Manuscript Draft/`**  
+  Research paper draft sent to Journal.
 
 - **`Codes/`**  
   Python scripts used for thermodynamic calculations, equilibrium curve generation, batch distillation modeling, McCabe–Thiele analysis, simulations, and data processing.
