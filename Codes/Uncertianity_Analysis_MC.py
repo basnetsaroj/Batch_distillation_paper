@@ -1,6 +1,6 @@
 """
-Monte Carlo uncertainty propagation for effective heating power (P), reflux-condenser duty (Q_cond), reflux ratio (R), 
-final distillate concentration, and final distillate volume"""
+Monte Carlo uncertainty propagation for effective heating power (P), reflux-condenser duty (Q_cond), 
+reflux ratio (R), final distillate concentration, and final distillate volume"""
 
 
 ''' #Use this for google colab
@@ -194,10 +194,14 @@ def run_simulation(PowerI, RR, n_e_initial, n_w_initial, rho_e0, rho_w0, P2_mmHg
 # Monte Carlo driver
 # ===================================================================
 # Nominal values and standard uncertainties, Run 3.
-# Initial_vol, C_e, T0: single readings -> Type B (resolution) only.
-# T_in, T_out, t_fill : 3 logged readings -> Type A (repeatability of the
-#   mean, s/sqrt(3)) combined in quadrature with Type B (resolution).
-nom = dict(Initial_vol=3.5, C_e=30, T0=17, t_bpt_s=940, t_total_s =53*60, V_w=900, t_fill=92.67, T_in=24.73, T_out=37.1)
+
+# The average of these three values are treated as one, for simplicity. Also for other runs only one valuse was noted.
+t_cond_w = (82+92+104)/3
+Tw_in    = (23.4+25.3+25.5)/3
+Tw_out   = (35+36.8+39.5)/3
+
+nom = dict(Initial_vol=3.5, C_e=30, T0=17, t_bpt_s=940, t_total_s =53*60, V_w=900, 
+           t_fill=t_cond_w, T_in=Tw_in, T_out=Tw_out)
 
 # Instrument resolution
 resolution = dict(
@@ -209,8 +213,8 @@ resolution = dict(
     V_w         = 5.0,     # mL
     t_fill      = 1.0,     # s
     T_in        = 0.1,     # °C
-    T_out       = 0.1      # °C
-)
+    T_out       = 0.1)     # °C
+
 # Standard uncertainty for a rectangular distribution
 u = {key: value / np.sqrt(12) for key, value in resolution.items()}
 
@@ -235,11 +239,8 @@ if __name__ == "__main__":
 
     out = np.array(out)
     print(f"Discarded draws (P <= Q_cond): {n_discarded}/{N}")
-    for name, col in zip(
-        ["P (W)", "Q_cond (W)", "R", "Final conc (v/v%)", "Total dist (mL)"],
-        out.T,):
-        print(f"{name:20s}: {col.mean():9.3f} +/- {col.std(ddof=1):7.3f}  "
-              f"({100*col.std(ddof=1)/col.mean():5.2f} %)")
+    for name, col in zip(["P (W)", "Q_cond (W)", "R", "Final conc (v/v%)", "Total dist (mL)"], out.T,):
+        print(f"{name:20s}: {col.mean():9.2f} +/- {col.std(ddof=1):7.2f} " f"({100*col.std(ddof=1)/col.mean():5.2f} %)")
 
 
 
